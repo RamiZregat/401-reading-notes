@@ -107,3 +107,4 @@ Page|Topic
 19|[Component Based UI](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-26)
 20|[useState() Hook](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-27)
 21|[Component Lifecycle / useEffect() Hook](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-28)
+22|[Advanced State with Reducers](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-29)
