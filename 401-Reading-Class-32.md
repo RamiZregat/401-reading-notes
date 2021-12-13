@@ -1,58 +1,50 @@
-# `<Login />` and `<Auth />`
+# Context API - Behaviors
 
 ## Review, Research, and Discussion
 
-1. Why is the Context API useful?
+1. When you have multiple contexts, what component type should you use (class/function) and why?
 
-   - The Context API is useful because it can change important values for many components at once from a centralized location, without all of the values having to be passed through many layers of props.
+   - If we have many components then Functional will be a revelation from `wrapper hell`, but if not. Then there is no difference.
 
-2. Can a component outside of a provider get its context?
+2. What are some good use cases for using the Context API for global state?
 
-   - No, it's need to be wrapped between the provider.
+   - Stripe : Stripe is one of the most successful and best
+   - known API-driven businesses. Ebay : Unlike the previous companies, eBay didn’t start out with the intent of being API-driven.
 
-3. What are some common use cases for using the Context API?
-
-   - Change the theme and as the profile data for the user to be access in any where inside the components
-
-4. Describe `Context Hell`
-
-   - Without useContext, you may need to pass or drilling props to each components in the app to be access for the components that will consume it.
+3. How can you best test context?
+   - The best way to test Context is to make our tests unaware of its existence and avoiding mocks. We want to test our components in the same way that developers would use them (behavioral testing) and mimic the way they would run in our applications (integration testing).
 
 ---
 
 ## Terms
 
-- global state:
-  > This is the state of the entire React application that located in the context.
+- context:
 
-- global context :
-  > This is context that affects the entire application, and it will share data to everything in the React component tree.
+  > is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language. For example, in the code below we manually thread through a “theme” prop in order to style the Button component: class App extends React.
+- `useContext() `:
 
-- provider:
-  > The context provider accepts a value that will be passed to its children. All children components will re-render when the value changes.
-
-- consumer :
-  > This is a React component that subscribes to context changes in value of the Provider.
+  > hook is used to create common data that can be accessed throughout the component hierarchy without passing the props down manually to each level. Context defined will be available to all the child components without involving “props”.
+- static context:
+  > If you are using the experimental public class fields syntax, you can use a static class field to initialize your contextType.
 ---
 
 ## Preparation Materials
 
-- we will combine Authentication (valid user is logged in) and Authorization (what permissions does the user have) to create a UI that ensures that users only have access to content and functionality that they're granted access to.
+### Context api
 
-- What is Role-Based Access Control (RBAC) ?
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
 
-  In computer systems security, role-based access control or role-based security is an approach to restricting system access to authorized users. It is used by the majority of enterprises with more than 500 employees, and can implement mandatory access control or discretionary access control.
+In a typical React application, data is passed top-down (parent to child) via props, but such usage can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
 
-  BENEFITS OF RBAC
-  
+- When to Use Context
+  - Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
 
-        - Reducing administrative work and IT support
-        - Maximizing operational efficiency
-        - Improving compliance
+Before You Use Context Context is primarily used when some data needs to be accessible by many components at different nesting levels. Apply it sparingly because it makes component reuse more difficult.
 
+If you only want to avoid passing some props through many levels, component composition is often a simpler solution than context.
 
-- React-cookies
+Hooks and context example After performing an audit on how we communicate with our users, we landed with a simple system of three classes of communication, and snackbars fit perfectly on the ‘low priority’ end of that spectrum. They are small notifications that show up on the screen when a user performs an action. They are not intrusive at all and appear for just a brief moment.
 
-  Cookies are the data stored in the form of key-value pairs that are used to store information about the user on their computer by the websites that the users browse and use it to verify them.
+From an engineering standpoint, our snackbar system must easy to use and generally be very lightweight. We want to be able to place one on the screen with just a couple of lines of code. Anything more and it’s overkill.
 
-  To set or remove the cookies, we are using a third-party dependency of react-cookie
+This means forget render props and higher order components. We don’t want to deal with a messy React tree and wrappers. We don’t want action creators, reducers\*, or any of that stuff.
