@@ -110,3 +110,4 @@ Page|Topic
 22|[Advanced State with Reducers](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-29)
 23|[Hash Tables](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-30)
 24|[Context API](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-31)
+25|[`<Login />` and `<Auth />`](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-32)
