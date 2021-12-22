@@ -117,3 +117,4 @@ Page|Topic
 29|[Application State with Redux](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-36)
 30|[Redux - Combined Reducers](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-37)
 31|[Redux - Asynchronous Actions](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-38)
+32|[Redux - Additional Topics](https://ramizregat.github.io/401-reading-notes/401-Reading-Class-39)
